@@ -1,0 +1,46 @@
+inventory = {
+    'apple': 80,
+    'banana': 60,
+    'toothbrush': 100,
+    'vegetable': 35,
+    'samsung galaxy s23': 96000,
+    'ps5': 50000
+}
+
+
+def display_inventory():
+    print("Available items:")
+    for item, price in inventory.items():
+        print(f"{item.capitalize()}: ₹{price}")
+
+
+def calculate_bill(cart):
+    total = 0
+    for item, quantity in cart.items():
+        total += inventory[item] * quantity
+    return total
+
+
+def main():
+    cart = {}
+    while True:
+        display_inventory()
+        choice = input("Enter the item you want to buy (or '1' to finish shopping): ").lower()
+        if choice == 'done':
+            break
+        elif choice in inventory:
+            quantity = int(input(f"Enter the quantity of {choice}: "))
+            cart[choice] = quantity
+        else:
+            print("Invalid item! Please choose from the available items.")
+
+    print("\nYour cart:")
+    for item, quantity in cart.items():
+        print(f"{item.capitalize()}: {quantity}")
+
+    total_bill = calculate_bill(cart)
+    print(f"\nTotal Bill: ₹{total_bill}")
+
+
+if __name__ == "__main__":
+    main()
