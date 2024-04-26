@@ -1,1 +1,43 @@
+sp = int(input("enter the starting number "))
+ep = int(input("enter the ending number "))
+up = int(input("enter the updation in numbers "))
+choice = input("enter 'f' if you want to print forward and 'b'to print backward")
 
+if (choice == 'f'):
+    if (sp > ep):
+        print("invailed")
+    elif (sp == ep):
+        print("invailed")
+    else:
+        print("you will get result in forward")
+        choice1 = input("enter 'r'to print in row and 'c'to print in coloumn")
+        if (choice1 == 'r'):
+            print("your result will be in row")
+            for i in range(sp, ep + 1, up):
+                print(i, end=",")
+        elif (choice1 == 'c'):
+            print("your result will be in column")
+            for i in range(sp, ep + 1, up):
+                print(i)
+        else:
+            print("invailed choice")
+elif (choice == 'b'):
+    if (sp < ep):
+        print("invailed")
+    elif (ep == sp):
+        print("invailed")
+    else:
+        print("you will get result in backward")
+        choice1 = input("enter 'r'to print in row and 'c'to print in coloumn")
+        if (choice1 == 'r'):
+            print("your result will be in row")
+            for i in range(sp, ep - 1, -up):
+                print(i, end=",")
+        elif (choice1 == 'c'):
+            print("your result will be in column")
+            for i in range(sp, ep - 1, -up):
+                print(i)
+        else:
+            print("invailed choice")
+else:
+    print("invailed choice")
